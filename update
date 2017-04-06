@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm frontend/src/ApiFlow.js
+javaflow backend/src/main/java/no/havard/models/User.java | cat >frontend/src/ApiFlow.js
