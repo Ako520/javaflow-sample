@@ -1,4 +1,17 @@
 #!/bin/bash
 
+prerequisites() {
+  which javaflow > /dev/null
+
+  if (( $? != 0 )) ; then
+    echo "Command not found 'javaflow'"
+    echo ""
+    echo "Goto: https://github.com/havardh/javaflow#installation for installation instructions"
+    exit 1
+  fi
+}
+
+prerequisites
+
 rm frontend/src/ApiFlow.js
-javaflow backend/src/main/java/no/havard/models/User.java | cat >frontend/src/ApiFlow.js
+javaflow backend/src/main/java/no/havard/models/User.java >frontend/src/ApiFlow.js
